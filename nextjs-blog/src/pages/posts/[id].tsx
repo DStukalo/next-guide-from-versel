@@ -1,56 +1,50 @@
-import Layout from "../../../components/layout";
-import Head from "next/head";
-import { getAllPostIds, getPostData } from "../../../lib/posts";
-import Date from "../../../components/date";
+import type { InferGetStaticPropsType, GetStaticProps } from "next";
+import Layout from "@/components/Layout/Layout";
+
+type Post = {
+	body: string;
+	id: number;
+	title: string;
+	userId: number;
+};
 
 export async function getStaticPaths() {
-	const paths = getAllPostIds();
+	const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+	const posts: Post[] = await res.json();
+	const paths = posts.map((el) => ({
+		params: { id: String(el.id) },
+	}));
+	console.log(paths);
 	return {
 		paths,
 		fallback: false,
 	};
 }
 
-export async function getStaticProps({
+export const getStaticProps = async ({
 	params,
 }: {
-	params: {
-		id: string;
-	};
-}) {
-	// Add the "await" keyword like this:
-	const postData = await getPostData(params.id);
-
-	return {
-		props: {
-			postData,
-		},
-	};
-}
+	params: { id: string };
+}) => {
+	const res = await fetch(
+		`https://jsonplaceholder.typicode.com/posts/${params.id}`
+	);
+	const post = await res.json();
+	return { props: { post } };
+};
 
 export default function Post({
-	postData,
-}: {
-	postData: {
-		id: string;
-		title: string;
-		date: string;
-		contentHtml: string;
-	};
-}) {
+	post,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
+	console.log(post);
 	return (
-		<Layout home={false}>
-			<Head>
-				<title>{postData.title}</title>
-			</Head>
-			{postData.title}
-			<br />
-			{postData.id}
-			<br />
-			{/* {postData.date} */}
-			<Date dateString={postData.date} />
-			<br />
-			<div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+		<Layout>
+			<article className=' '>
+				<div className='px-4 py-8'>
+					<h3 className='px-4 py-2 uppercase'>{post.title}</h3>
+					<p>{post.body}</p>
+				</div>
+			</article>
 		</Layout>
 	);
 }
