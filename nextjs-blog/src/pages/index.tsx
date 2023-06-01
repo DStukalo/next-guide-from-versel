@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Date from "@/components/date";
 import Layout, { siteTitle } from "@/components/Layout/Layout";
-import { BlogData, getSortedBlogsData } from "../../lib/blogs";
+import { getSortedBlogsData } from "../../lib/blogs";
+import { BlogData } from "../../types/types";
 
 export async function getStaticProps() {
 	const allBlogsData: Partial<BlogData>[] = getSortedBlogsData();

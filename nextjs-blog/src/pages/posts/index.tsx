@@ -2,18 +2,12 @@ import type { InferGetStaticPropsType, GetStaticProps } from "next";
 import Layout from "@/components/Layout/Layout";
 import Link from "next/link";
 import Head from "next/head";
-
-type Post = {
-	body: string;
-	id: number;
-	title: string;
-	userId: number;
-};
+import { PostData } from "../../../types/types";
 
 const postsTitle = "Next.js posts";
 
 export const getStaticProps: GetStaticProps<{
-	post: Post[];
+	post: PostData[];
 }> = async () => {
 	const res = await fetch("https://jsonplaceholder.typicode.com/posts");
 	const post = await res.json();

@@ -3,18 +3,13 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import { BlogData } from "../types/types";
 
 const blogsDirectory = path.join(process.cwd(), "blogs");
 
-export type BlogData = {
-	id: string;
-	date: string;
-	title: string;
-};
-
 export function getSortedBlogsData() {
 	const fileNames = fs.readdirSync(blogsDirectory);
-	const allBlogsData = fileNames.map((fileName) => {
+	const allBlogsData: Partial<BlogData>[] = fileNames.map((fileName) => {
 		const id = fileName.replace(/\.md$/, "");
 		const fullPath = path.join(blogsDirectory, fileName);
 		const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -25,11 +20,14 @@ export function getSortedBlogsData() {
 		};
 	});
 	return allBlogsData.sort((a, b) => {
-		if ((a as BlogData).date < (b as BlogData).date) {
-			return 1;
-		} else {
-			return -1;
+		if (a.date && b.date) {
+			if (a.date < b.date) {
+				return 1;
+			} else if (a.date > b.date) {
+				return -1;
+			}
 		}
+		return 0;
 	});
 }
 

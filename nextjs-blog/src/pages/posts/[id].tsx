@@ -1,16 +1,10 @@
-import type { InferGetStaticPropsType, GetStaticProps } from "next";
+import type { InferGetStaticPropsType } from "next";
 import Layout from "@/components/Layout/Layout";
-
-type Post = {
-	body: string;
-	id: number;
-	title: string;
-	userId: number;
-};
+import { PostData } from "../../../types/types";
 
 export async function getStaticPaths() {
 	const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-	const posts: Post[] = await res.json();
+	const posts: PostData[] = await res.json();
 	const paths = posts.map((el) => ({
 		params: { id: String(el.id) },
 	}));
