@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
+import Button from "../Button/Button";
 
 export default function Header() {
 	const router = useRouter();
@@ -65,6 +66,9 @@ export default function Header() {
 							>
 								Blog
 							</Link>
+						</li>
+						<li>
+							<Button />
 						</li>
 					</ul>
 				</nav>
