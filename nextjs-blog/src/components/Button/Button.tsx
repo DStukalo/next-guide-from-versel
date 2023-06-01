@@ -8,7 +8,7 @@ const Button = () => {
 	return (
 		<button
 			onClick={() => (theme === "dark" ? setTheme("light") : setTheme("dark"))}
-			className='p-0.5 inline-block text-blue-100 dark:text-blue-100 dark:hover:text-white-200 dark:bg-white-200 rounded-full'
+			className='w-6 p-0.5 inline-block bg-gray-100 dark:bg-white-200 rounded-full'
 		>
 			{theme === "dark" ? (
 				<Image
@@ -24,7 +24,7 @@ const Button = () => {
 				<Image
 					priority
 					src='/images/sun_icon.svg'
-					className='w-6 rounded-full'
+					className='w-6 '
 					height={208}
 					width={208}
 					alt=''
