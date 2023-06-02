@@ -27,8 +27,7 @@ const Button = () => {
 					width={5}
 					alt=''
 				/>
-			) : null}
-			{theme === "light" ? (
+			) : (
 				<Image
 					priority
 					src='/images/sun_icon.svg'
@@ -37,16 +36,7 @@ const Button = () => {
 					width={208}
 					alt=''
 				/>
-			) : null}
-			{/* Toggle Mode
-			<Image
-						priority
-						src='/images/profile avatar.jpg'
-						className='w-52 rounded-full'
-						height={208}
-						width={208}
-						alt=''
-					/> */}
+			)}
 		</button>
 	);
 };
