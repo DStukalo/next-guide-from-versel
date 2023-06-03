@@ -1,5 +1,3 @@
-// --color-green-a1: #78dcca;
-
 /** @type {import('tailwindcss').Config} */
 const plugin = require("tailwindcss/plugin");
 module.exports = {
@@ -11,26 +9,18 @@ module.exports = {
 	darkMode: "class",
 	theme: {
 		colors: {
-			white: {
-				100: "rgb(var(--color-white-a1) / <alpha-value>)",
-				200: "rgb(var(--color-white-a2) / <alpha-value>)",
+			primary: {
+				100: "rgb(var(--color-primary-a1) / <alpha-value>)",
+				200: "rgb(var(--color-primary-a2) / <alpha-value>)",
 			},
-			blue: {
-				100: "rgb(var(--color-blue-a1) / <alpha-value>)",
+			secondary: {
+				100: "rgb(var(--color-secondary-a1) / <alpha-value>)",
+				200: "rgb(var(--color-secondary-a2) / <alpha-value>)",
+				300: "rgb(var(--color-secondary-a3) / <alpha-value>)",
 			},
-			gray: {
-				100: "rgb(var(--color-gray-a1) / <alpha-value>)",
-				200: "rgb(var(--color-gray-a2) / <alpha-value>)",
-			},
-			black: {
-				100: "rgb(var(--color-black-a1) / <alpha-value>)",
-			},
-			purple: {
-				100: "rgb(var(--color-purple-a1) / <alpha-value>)",
-				200: "rgb(var(--color-purple-a2) / <alpha-value>)",
-			},
-			green: {
-				100: "rgb(var(--color-green-a1) / <alpha-value>)",
+			tertiary: {
+				100: "rgb(var(--color-tertiary-a1) / <alpha-value>)",
+				200: "rgb(var(--color-tertiary-a2) / <alpha-value>)",
 			},
 		},
 		extend: {

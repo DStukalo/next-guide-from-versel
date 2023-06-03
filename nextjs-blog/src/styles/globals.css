@@ -4,14 +4,22 @@
 
 @layer base {
 	:root {
-		--color-white-a1: 255 255 255;
-		--color-white-a2: 236 235 255;
-		--color-black-a1: 21 18 18;
-		--color-blue-a1: 18 16 99;
-		--color-purple-a1: 187 60 181;
-		--color-purple-a2: 89 34 94;
-		--color-grey-a1: 118 118 124;
-		--color-grey-a2: 86 85 132;
-		--color-green-a1: 120 220 202;
+		--color-primary-a1: 255 255 255;
+		--color-primary-a2: 236 235 255;
+		--color-secondary-a1: 187 60 181;
+		--color-secondary-a2: 89 34 94;
+		--color-secondary-a3: 255 255 254;
+		--color-tertiary-a1: 118 118 124;
+		--color-tertiary-a2: 86 85 132;
+	}
+
+	.dark {
+		--color-primary-a1: 21 18 18;
+		--color-primary-a2: 18 16 99;
+		--color-secondary-a1: 255 255 255;
+		--color-secondary-a2: 236 235 255;
+		--color-secondary-a3: 236 235 255;
+		--color-tertiary-a1: 120 220 202;
+		--color-tertiary-a2: 48 15 192;
 	}
 }
