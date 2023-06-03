@@ -36,8 +36,8 @@ export default function Header() {
 								href={"/"}
 								className={
 									router.pathname == "/"
-										? "header-link pb-0.5 inline-block border-b hover:cursor-default text-purple-100 dark:text-white-100"
-										: "header-link pb-0.5 inline-block text-blue-100 dark:text-blue-100 dark:hover:text-white-200"
+										? "header-link pb-0.5 inline-block border-b hover:cursor-default text-tertiary-200 "
+										: "header-link pb-0.5 inline-block text-secondary-100 hover:text-tertiary-100"
 								}
 							>
 								Home
@@ -48,8 +48,8 @@ export default function Header() {
 								href={"/posts"}
 								className={
 									router.pathname == "/posts"
-										? "header-link pb-0.5 inline-block border-b hover:cursor-default text-gray-100 dark:text-white-100"
-										: "header-link pb-0.5 inline-block text-blue-100 dark:text-blue-100 dark:hover:text-white-200 transition-all ease-linear delay-200"
+										? "header-link pb-0.5 inline-block border-b hover:cursor-default text-tertiary-200 "
+										: "header-link pb-0.5 inline-block text-secondary-100 hover:text-tertiary-100"
 								}
 							>
 								Posts
@@ -60,8 +60,8 @@ export default function Header() {
 								href={"/blog"}
 								className={
 									router.pathname == "/blog"
-										? "header-link pb-0.5 inline-block border-b hover:cursor-default text-gray-100 dark:text-white-100"
-										: "header-link pb-0.5 inline-block text-blue-100 dark:text-blue-100 dark:hover:text-white-200"
+										? "header-link pb-0.5 inline-block border-b hover:cursor-default text-tertiary-200 "
+										: "header-link pb-0.5 inline-block text-secondary-100 hover:text-tertiary-100"
 								}
 							>
 								Blog

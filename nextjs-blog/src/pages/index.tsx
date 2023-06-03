@@ -52,7 +52,7 @@ export default function Home({ allBlogsData }: { allBlogsData: BlogData[] }) {
 					(This is a sample website - you’ll be building a site like this on{" "}
 					<a
 						href='https://nextjs.org/learn'
-						className=' sub-text text-green-100 dark:text-green-100'
+						className=' sub-text text-green-100'
 					>
 						our Next.js tutorial
 					</a>

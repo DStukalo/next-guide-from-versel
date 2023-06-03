@@ -14,7 +14,7 @@ export default function Layout({
 }) {
 	const name = "Dmytro Stukalo";
 	return (
-		<div className='max-w-ful py-0 px-4 mx-auto bg-white-100 dark:bg-black-100 text-black-100 dark:text-white-100 min-h-screen'>
+		<div className='max-w-ful py-0 px-4 mx-auto bg-primary-100 min-h-screen text-secondary-200'>
 			<Head>
 				<link
 					rel='icon'

@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { ThemeProvider } from "next-themes";
 import { Inter, Roboto } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -15,10 +14,8 @@ const roboto = Roboto({
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
-		<ThemeProvider attribute='class'>
-			<div className={`${roboto.variable} ${inter.variable}`}>
-				<Component {...pageProps} />
-			</div>
-		</ThemeProvider>
+		<div className={`${roboto.variable} ${inter.variable}`}>
+			<Component {...pageProps} />
+		</div>
 	);
 }

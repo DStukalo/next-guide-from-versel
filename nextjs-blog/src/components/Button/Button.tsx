@@ -1,27 +1,23 @@
-import { useTheme } from "next-themes";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useTheme } from "../../../hooks/useTheme";
 
 const Button = () => {
-	const { systemTheme, theme, setTheme } = useTheme();
-	const currentTheme = theme === "system" ? systemTheme : theme;
-	const [classes, setClasses] = useState(currentTheme);
-
-	useEffect(() => {
-		if (classes) setTheme(classes);
-	}, [classes, setTheme]);
+	const { theme, setTheme } = useTheme();
+	const onClickHandle = () => {
+		console.log("click");
+		if (theme === "dark") setTheme("light");
+		if (theme === "light") setTheme("dark");
+	};
 
 	return (
 		<button
-			onClick={() =>
-				theme === "dark" ? setClasses("light") : setClasses("dark")
-			}
-			className='min-w-6 p-0.5 inline-block bg-gray-100 dark:bg-white-200 rounded-full'
+			onClick={() => onClickHandle()}
+			className='min-w-6 p-0.5 inline-block bg-secondary-300 rounded-full'
 		>
 			{theme === "dark" ? (
 				<Image
 					priority
-					src='/images/night_icon.svg'
+					src='/images/sun_icon.svg'
 					className='w-6'
 					height={5}
 					width={5}
@@ -30,10 +26,10 @@ const Button = () => {
 			) : (
 				<Image
 					priority
-					src='/images/sun_icon.svg'
+					src='/images/night_icon.svg'
 					className='w-6 '
-					height={208}
-					width={208}
+					height={5}
+					width={5}
 					alt=''
 				/>
 			)}
